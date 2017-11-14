@@ -1,5 +1,6 @@
 package utility;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -21,5 +22,9 @@ public class HibernateUtility {
             session = (Session) new HibernateUtility();
         }
         return session;
+    }
+
+    public static void closeSession() throws HibernateException {
+        sf.close();
     }
 }
